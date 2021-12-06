@@ -1,1 +1,11 @@
 # Work Day Scheduler Starter Code
+
+## Expected Behavior
+
+User is able to save an appointment or meeting on the agenda, reflecting the current date. The save button allows the appointments to stay on the calendar when the page is refreshed. User is able to clear schedule if needed.
+
+## Outcome
+
+When the users scheduler is accessed, it shows a blank agenda for the current day. Once a timeslot is filled with a plan, user clicks 'save'. When you refresh the page, it saves the event on the calendar. If the user wants to clear their schedule, they can click the 'clear schedule' button to allow for a free agenda.
+
+

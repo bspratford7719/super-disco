@@ -1,3 +1,4 @@
+// variables for the hour scheduling
 var nineAm = moment().set({"hour":9, "minute":0, "second":0})
 var tenAm = moment().set({"hour":10, "minute":0, "second":0})
 var elevenAm = moment().set({"hour":11, "minute":0, "second":0})
@@ -8,7 +9,7 @@ var threePm = moment().set({"hour":15, "minute":0, "second":0})
 var fourPm = moment().set({"hour":16, "minute":0, "second":0})
 var fivePm = moment().set({"hour":17, "minute":0, "second":0})
 
-
+// moment input for the time
 const currentDate = moment()
 
 function currentDay (){
@@ -17,25 +18,28 @@ function currentDay (){
     dayElement.innerText = currentMoment;
 }
 
+// deciding on if the time is past, present or future to color code
 function getTense(moment, id) {
     var textElement = document.getElementById(id);
+    // depicting if the time is past
     if(moment < currentDate) {
         textElement.className = "col-10 past"
         return;
     }
 
-    //present
+    // depicting if the time is present
     if(moment.hour() === currentDate.hour()) {
         textElement.className = "col-10 present"
         return;
     }
-
+    // depicting if the time is future
     if(moment > currentDate) {
         textElement.className = "col-10 future"
         return;
     }
 }
 
+// local storage information
 function getUserInputFromLocalStorage(textAreaID) {
     var userInput = localStorage.getItem(textAreaID)
     if (userInput){
@@ -46,11 +50,13 @@ function getUserInputFromLocalStorage(textAreaID) {
     }
 }
 
+// save button for each time slot
 function saveBtn(textAreaID){
     var userInput = document.getElementById(textAreaID).value;
     localStorage.setItem(textAreaID, userInput);
 }
 
+// option to clear schedule
 function clearBtn(){
     localStorage.clear();
     getUserInputFromLocalStorage("nineAmElement")
