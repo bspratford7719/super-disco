@@ -11,10 +11,18 @@ function getTense(moment, id) {
     var textElement = document.getElementById(id);
     if(moment < currentDate) {
         textElement.className = "col-10 past"
+        return;
+    }
+
+    //present
+    if(moment.hour() === currentDate.hour()) {
+        textElement.className = "col-10 present"
+        return;
     }
 
     if(moment > currentDate) {
         textElement.className = "col-10 future"
+        return;
     }
 }
 
@@ -29,6 +37,13 @@ var fourPm = moment().set({"hour":16, "minute":0, "second":0})
 var fivePm = moment().set({"hour":17, "minute":0, "second":0})
 
 getTense(nineAm, "nineAmElement")
-
+getTense(tenAm, "tenAmElement")
+getTense(elevenAm, "elevenAmElement")
+getTense(twelvePm, "twelvePmElement")
+getTense(onePm, "onePmElement")
+getTense(twoPm, "twoPmElement")
+getTense(threePm, "threePmElement")
+getTense(fourPm, "fourPmElement")
+getTense(fivePm, "fivePmElement")
 
 currentDay();
