@@ -36,15 +36,35 @@ function getTense(moment, id) {
     }
 }
 
-function getUserInputFromLocalStorage(textAreaID){
+function getUserInputFromLocalStorage(textAreaID) {
     var userInput = localStorage.getItem(textAreaID)
-    document.getElementById(textAreaID).value = userInput
+    if (userInput){
+        document.getElementById(textAreaID).value = userInput    
+    }
+    else {
+        document.getElementById(textAreaID).value = ""
+    }
 }
 
 function saveBtn(textAreaID){
     var userInput = document.getElementById(textAreaID).value;
     localStorage.setItem(textAreaID, userInput);
 }
+
+function clearBtn(){
+    localStorage.clear();
+    getUserInputFromLocalStorage("nineAmElement")
+    getUserInputFromLocalStorage("tenAmElement")
+    getUserInputFromLocalStorage("elevenAmElement")
+    getUserInputFromLocalStorage("twelvePmElement")
+    getUserInputFromLocalStorage("onePmElement")
+    getUserInputFromLocalStorage("twoPmElement")
+    getUserInputFromLocalStorage("threePmElement")
+    getUserInputFromLocalStorage("fourPmElement")
+    getUserInputFromLocalStorage("fivePmElement")
+}
+
+document.getElementById('clear').addEventListener("click", function (){clearBtn()})
 
 document.getElementById('save9').addEventListener("click", function () { saveBtn("nineAmElement")})
 document.getElementById('save10').addEventListener("click", function () { saveBtn("tenAmElement")})
@@ -69,7 +89,7 @@ getTense(fivePm, "fivePmElement")
 getUserInputFromLocalStorage("nineAmElement")
 getUserInputFromLocalStorage("tenAmElement")
 getUserInputFromLocalStorage("elevenAmElement")
-getUserInputFromLocalStorage("twelveAmElement")
+getUserInputFromLocalStorage("twelvePmElement")
 getUserInputFromLocalStorage("onePmElement")
 getUserInputFromLocalStorage("twoPmElement")
 getUserInputFromLocalStorage("threePmElement")
