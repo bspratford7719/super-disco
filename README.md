@@ -1,4 +1,4 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler
 
 https://bspratford7719.github.io/super-disco/
 
